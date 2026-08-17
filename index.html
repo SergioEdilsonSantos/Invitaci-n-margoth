@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Estilos adaptados al fondo oscuro (Azul Profundo y Dorado) */
         :root {
             --dorado: #d4af37;
             --dorado-claro: #f5e2a3;
@@ -19,24 +20,27 @@
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background-color: #0b1426; 
-            background-image: url('1000146364.jpg');
+            /* AQUÍ ESTÁ EL NUEVO FONDO */
+            /* Si prefieres usar tu otra ruta, cambia '1000146364.jpg' por '/978fd4465d63c40243e1957cef01d9e9.jpg' */
+            background-color: #0b1426; /* Color de respaldo */
+            background-image: url('fondo.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; 
+            background-attachment: fixed; /* Hace que el fondo se quede quieto al deslizar */
             color: var(--texto-claro);
             text-align: center;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
+        /* --- PANTALLA DE INGRESO --- */
         #pantalla-ingreso {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: #070c17; 
+            background-color: #070c17; /* Azul muy oscuro para el telón de inicio */
             color: white;
             display: flex;
             flex-direction: column;
@@ -73,13 +77,15 @@
             100% { transform: scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
         }
 
+        /* Contenedor principal */
         #contenido-principal {
             display: none;
             padding-bottom: 50px;
-            background: rgba(0, 0, 0, 0.3); 
+            background: rgba(0, 0, 0, 0.3); /* Un leve oscurecimiento para leer mejor las letras */
             min-height: 100vh;
         }
 
+        /* Tipografías */
         .fuente-cursiva { font-family: 'Great Vibes', cursive; }
         .fuente-titulo { font-family: 'Playfair Display', serif; }
         .fuente-texto { font-family: 'Montserrat', sans-serif; }
@@ -99,6 +105,7 @@
             margin: 15px auto;
         }
 
+        /* --- TEXTOS --- */
         .titulo-invitada {
             font-size: 3.2rem;
             margin-bottom: 10px;
@@ -148,6 +155,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
+        /* --- NUEVO DISEÑO DEL 22 --- */
         .anillo-fecha {
             width: 100px;
             height: 100px;
@@ -159,12 +167,13 @@
             font-size: 4rem;
             color: var(--dorado-claro);
             margin: 20px auto;
-            background: rgba(11, 20, 38, 0.6); 
-            backdrop-filter: blur(5px); 
+            background: rgba(11, 20, 38, 0.6); /* Fondo semi transparente */
+            backdrop-filter: blur(5px); /* Efecto cristal */
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.2);
             text-shadow: 0 0 10px var(--dorado);
         }
 
+        /* --- UBICACIÓN --- */
         .titulo-ubicacion {
             font-size: 3rem;
             color: var(--dorado);
@@ -199,6 +208,7 @@
             transform: translateY(2px);
         }
 
+        /* --- HORARIOS Y CONTADOR --- */
         .horarios {
             font-size: 2.2rem;
             margin: 10px 0;
@@ -211,7 +221,7 @@
             justify-content: center;
             gap: 15px;
             margin-top: 25px;
-            background: rgba(10, 15, 30, 0.7); 
+            background: rgba(10, 15, 30, 0.7); /* Contenedor oscuro translúcido */
             border: 1px solid rgba(212, 175, 55, 0.3);
             padding: 20px;
             border-radius: 15px;
@@ -240,15 +250,15 @@
         <button class="btn-abrir" onclick="ingresarInvitacion()">ABRIR INVITACIÓN</button>
     </div>
 
-    <!-- AUDIO VINCULADO EXACTAMENTE A TU ARCHIVO -->
     <audio id="musica-fondo" loop>
-        <source src="Loca.mp3" type="audio/mpeg">
+        <source src="/Loca.mp3" type="audio/mpeg">
     </audio>
 
     <div id="contenido-principal">
         
         <div class="seccion">
             <h1 class="fuente-titulo titulo-invitada">¡Fiesta de Colación!</h1>
+            <!-- Hojas cambiadas por destellos dorados acordes al fondo -->
             <div class="adornos-destellos">✨✨✨</div>
             <h2 class="fuente-cursiva nombre-glow">Margoth<br>Quispe</h2>
         </div>
@@ -266,6 +276,7 @@
         <div class="seccion">
             <h3 class="fuente-titulo cuando-donde">¿Cuándo y Dónde?</h3>
             <div class="fuente-texto dia-mes">SÁBADO</div>
+            <!-- Nuevo diseño del 22 -->
             <div class="fuente-cursiva anillo-fecha">22</div>
             <div class="fuente-texto dia-mes">DE AGOSTO</div>
         </div>
@@ -273,7 +284,7 @@
         <div class="seccion">
             <h2 class="fuente-titulo titulo-ubicacion">Ubicación</h2>
             <p class="fuente-cursiva salon-nombre">Salón de Eventos<br>Casa Blanca</p>
-            <a href="https://maps.app.goo.gl/kMDi2AWk8y4uJwfH9" target="_blank" class="btn-mapa">
+            <a href="https://maps.app.goo.gl/r347EqFjczZJPTyLA" target="_blank" class="btn-mapa">
                 VER MAPA ¡HAZ CLIC AQUÍ! 📍
             </a>
         </div>
@@ -282,7 +293,7 @@
 
         <div class="seccion">
             <p class="fuente-cursiva horarios">Inicio:<br><span class="fuente-texto" style="font-weight: 600; font-size: 1.5rem; color: var(--dorado-claro);">18:00 PM</span></p>
-            <p class="fuente-cursiva horarios" style="margin-top: 15px;">Fin:<br>Hasta que el cuerpo aguante 😏</p>
+            <p class="fuente-cursiva horarios" style="margin-top: 15px;">Fin:<br>Hasta que el cuerpo aguante!!! </p>
             
             <p class="fuente-cursiva" style="font-size: 2.8rem; margin-top: 35px; color: var(--dorado); text-shadow: 0 0 10px rgba(0,0,0,0.8);">¡Solo faltan!</p>
             
@@ -313,23 +324,22 @@
     </div>
 
     <script>
+        const musica = document.getElementById('musica-fondo');
+
+        // Función que se ejecuta al tocar "ABRIR INVITACIÓN"
         function ingresarInvitacion() {
-            // Ocultar telón
+            // Ocultar pantalla negra
             document.getElementById('pantalla-ingreso').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('pantalla-ingreso').style.display = 'none';
                 document.getElementById('contenido-principal').style.display = 'block';
             }, 500);
 
-            // Iniciar música
-            var musica = document.getElementById('musica-fondo');
-            musica.play().catch(function(error) {
-                console.log("No se pudo reproducir la música: ", error);
-                alert("Asegúrate de tener el volumen encendido 🔊");
-            });
+            // Iniciar música automáticamente
+            musica.play();
         }
 
-        // --- CONFIGURACIÓN DEL RELOJ ---
+        // CONFIGURACIÓN DEL RELOJ
         const fechaObjetivo = new Date("August 22, 2026 18:00:00").getTime();
 
         const intervalo = setInterval(function() {
