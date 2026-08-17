@@ -20,13 +20,11 @@
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            /* AQUÍ ESTÁ EL NUEVO FONDO */
-            /* Si prefieres usar tu otra ruta, cambia '1000146364.jpg' por '/978fd4465d63c40243e1957cef01d9e9.jpg' */
-            background-color: #0b1426; /* Color de respaldo */
+            background-color: #0b1426; 
             background-image: url('fondo.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Hace que el fondo se quede quieto al deslizar */
+            background-attachment: fixed; 
             color: var(--texto-claro);
             text-align: center;
             overflow-x: hidden;
@@ -40,7 +38,7 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: #070c17; /* Azul muy oscuro para el telón de inicio */
+            background-color: #070c17; 
             color: white;
             display: flex;
             flex-direction: column;
@@ -81,7 +79,7 @@
         #contenido-principal {
             display: none;
             padding-bottom: 50px;
-            background: rgba(0, 0, 0, 0.3); /* Un leve oscurecimiento para leer mejor las letras */
+            background: rgba(0, 0, 0, 0.3); 
             min-height: 100vh;
         }
 
@@ -167,8 +165,8 @@
             font-size: 4rem;
             color: var(--dorado-claro);
             margin: 20px auto;
-            background: rgba(11, 20, 38, 0.6); /* Fondo semi transparente */
-            backdrop-filter: blur(5px); /* Efecto cristal */
+            background: rgba(11, 20, 38, 0.6); 
+            backdrop-filter: blur(5px); 
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.2);
             text-shadow: 0 0 10px var(--dorado);
         }
@@ -221,7 +219,7 @@
             justify-content: center;
             gap: 15px;
             margin-top: 25px;
-            background: rgba(10, 15, 30, 0.7); /* Contenedor oscuro translúcido */
+            background: rgba(10, 15, 30, 0.7); 
             border: 1px solid rgba(212, 175, 55, 0.3);
             padding: 20px;
             border-radius: 15px;
@@ -258,7 +256,6 @@
         
         <div class="seccion">
             <h1 class="fuente-titulo titulo-invitada">¡Fiesta de Colación!</h1>
-            <!-- Hojas cambiadas por destellos dorados acordes al fondo -->
             <div class="adornos-destellos">✨✨✨</div>
             <h2 class="fuente-cursiva nombre-glow">Margoth<br>Quispe</h2>
         </div>
@@ -276,7 +273,6 @@
         <div class="seccion">
             <h3 class="fuente-titulo cuando-donde">¿Cuándo y Dónde?</h3>
             <div class="fuente-texto dia-mes">SÁBADO</div>
-            <!-- Nuevo diseño del 22 -->
             <div class="fuente-cursiva anillo-fecha">22</div>
             <div class="fuente-texto dia-mes">DE AGOSTO</div>
         </div>
@@ -324,19 +320,21 @@
     </div>
 
     <script>
-        const musica = document.getElementById('musica-fondo');
-
-        // Función que se ejecuta al tocar "ABRIR INVITACIÓN"
         function ingresarInvitacion() {
-            // Ocultar pantalla negra
+            // Ocultar pantalla negra de forma suave
             document.getElementById('pantalla-ingreso').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('pantalla-ingreso').style.display = 'none';
                 document.getElementById('contenido-principal').style.display = 'block';
             }, 500);
 
-            // Iniciar música automáticamente
-            musica.play();
+            // Iniciar música automáticamente al presionar el botón
+            var musica = document.getElementById('musica-fondo');
+            if (musica) {
+                musica.play().catch(function(error) {
+                    console.log("El navegador bloqueó la música: ", error);
+                });
+            }
         }
 
         // CONFIGURACIÓN DEL RELOJ
