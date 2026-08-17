@@ -230,15 +230,6 @@
             text-shadow: 0 0 20px var(--dorado);
             margin-top: 40px;
         }
-
-        /* Oculta el reproductor de YouTube visualmente pero permite que funcione */
-        #reproductor-oculto {
-            position: absolute;
-            top: -9999px;
-            left: -9999px;
-            width: 1px;
-            height: 1px;
-        }
     </style>
 </head>
 <body>
@@ -249,8 +240,10 @@
         <button class="btn-abrir" onclick="ingresarInvitacion()">ABRIR INVITACIÓN</button>
     </div>
 
-    <!-- Contenedor donde se cargará la música de YouTube -->
-    <div id="reproductor-oculto"></div>
+    <!-- AUDIO VINCULADO EXACTAMENTE A TU ARCHIVO -->
+    <audio id="musica-fondo" loop>
+        <source src="Loca.mp3" type="audio/mpeg">
+    </audio>
 
     <div id="contenido-principal">
         
@@ -280,7 +273,7 @@
         <div class="seccion">
             <h2 class="fuente-titulo titulo-ubicacion">Ubicación</h2>
             <p class="fuente-cursiva salon-nombre">Salón de Eventos<br>Casa Blanca</p>
-            <a href="https://maps.app.goo.gl/BJWs7nUzn6ZQwqBP9" target="_blank" class="btn-mapa">
+            <a href="https://maps.app.goo.gl/kMDi2AWk8y4uJwfH9" target="_blank" class="btn-mapa">
                 VER MAPA ¡HAZ CLIC AQUÍ! 📍
             </a>
         </div>
@@ -320,43 +313,20 @@
     </div>
 
     <script>
-        // --- CÓDIGO DE YOUTUBE ---
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        var player;
-        
-        // Ya puse el ID de tu canción aquí
-        var idDelVideo = 'oSDbm37N-l0'; 
-
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('reproductor-oculto', {
-                height: '0',
-                width: '0',
-                videoId: idDelVideo,
-                playerVars: {
-                    'autoplay': 0,
-                    'controls': 0,
-                    'loop': 1,
-                    'playlist': idDelVideo
-                }
-            });
-        }
-
-        // --- FUNCIÓN DEL BOTÓN ---
         function ingresarInvitacion() {
+            // Ocultar telón
             document.getElementById('pantalla-ingreso').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('pantalla-ingreso').style.display = 'none';
                 document.getElementById('contenido-principal').style.display = 'block';
             }, 500);
 
-            // Esto hace que la música de YouTube arranque al tocar el botón
-            if (player && player.playVideo) {
-                player.playVideo();
-            }
+            // Iniciar música
+            var musica = document.getElementById('musica-fondo');
+            musica.play().catch(function(error) {
+                console.log("No se pudo reproducir la música: ", error);
+                alert("Asegúrate de tener el volumen encendido 🔊");
+            });
         }
 
         // --- CONFIGURACIÓN DEL RELOJ ---
